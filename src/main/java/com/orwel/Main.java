@@ -15,8 +15,8 @@ public class Main extends Application {
         // Load configuration
         AppConfig.loadConfig();
         
-        // Load login page as entry point
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
+        // Load landing page as entry point
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Landing.fxml"));
         Scene scene = new Scene(root);
         
         // Apply CSS
@@ -27,8 +27,9 @@ public class Main extends Application {
         primaryStage.setMinWidth(1200);
         primaryStage.setMinHeight(800);
         
-        // Maximize window for laptop full screen experience
-        primaryStage.setMaximized(true);
+        // Enable true fullscreen mode
+        primaryStage.setFullScreen(true);
+        primaryStage.setFullScreenExitHint("");
         
         // Add fade in animation
         primaryStage.setOpacity(0);

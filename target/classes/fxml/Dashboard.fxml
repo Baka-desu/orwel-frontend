@@ -32,8 +32,8 @@
             
             <!-- Welcome Section -->
             <VBox fx:id="welcomeCard" spacing="15" styleClass="glass-card" style="-fx-padding: 35;">
-               <Label fx:id="welcomeLabel" text="Welcome!" styleClass="title-medium" style="-fx-font-size: 40px; -fx-text-fill: #00F2FF;"/>
-               <Label text="Track government policies and stay informed about countries worldwide" styleClass="body-text" style="-fx-font-size: 16px;"/>
+               <Label fx:id="welcomeLabel" styleClass="title-medium" style="-fx-font-size: 40px; -fx-text-fill: #00F2FF;"/>
+               <Label fx:id="welcomeDescriptionLabel" styleClass="body-text" style="-fx-font-size: 16px;"/>
             </VBox>
             
             <!-- Quick Stats -->

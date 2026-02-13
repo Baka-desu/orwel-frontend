@@ -1,12 +1,12 @@
 package com.orwel.util;
 
+import java.io.IOException;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class NavigationHelper {
     /**
@@ -45,6 +45,9 @@ public class NavigationHelper {
             }
             
             stage.setScene(scene);
+            // Ensure fullscreen mode is maintained
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
         } catch (IOException e) {
             System.err.println("Failed to load FXML: " + fxmlPath);
             e.printStackTrace();

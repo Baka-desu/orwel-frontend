@@ -1,5 +1,6 @@
 package com.orwel.controller;
 
+import com.orwel.config.AppConfig;
 import com.orwel.model.Country;
 import com.orwel.model.NewsArticle;
 import com.orwel.model.User;
@@ -26,6 +27,7 @@ import java.util.List;
 
 public class DashboardController {
     @FXML private Label welcomeLabel;
+    @FXML private Label welcomeDescriptionLabel;
     @FXML private Label countriesCountLabel;
     @FXML private Label warningsCountLabel;
     @FXML private Label newsCountLabel;
@@ -45,6 +47,11 @@ public class DashboardController {
     
     @FXML
     public void initialize() {
+        // Set welcome description from config
+        if (welcomeDescriptionLabel != null) {
+            welcomeDescriptionLabel.setText(AppConfig.APP_WELCOME_DESCRIPTION);
+        }
+        
         loadDashboardData();
         setupListViews();
         addAnimations();

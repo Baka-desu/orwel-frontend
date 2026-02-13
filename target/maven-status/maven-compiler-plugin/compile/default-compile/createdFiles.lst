@@ -41,6 +41,7 @@ com\orwel\model\NewsArticle.class
 com\orwel\controller\CountryDetailController$4.class
 com\orwel\model\Policy.class
 com\orwel\model\LoginRequest.class
+com\orwel\controller\LandingController.class
 com\orwel\config\AppConfig.class
 com\orwel\service\ApiService.class
 com\orwel\service\LocationService.class
