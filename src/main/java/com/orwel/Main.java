@@ -1,11 +1,12 @@
 package com.orwel;
 
+import com.orwel.config.AppConfig;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import com.orwel.config.AppConfig;
 
 public class Main extends Application {
     
@@ -16,7 +17,7 @@ public class Main extends Application {
         
         // Load login page as entry point
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
-        Scene scene = new Scene(root, 1400, 900);
+        Scene scene = new Scene(root);
         
         // Apply CSS
         scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
@@ -26,8 +27,8 @@ public class Main extends Application {
         primaryStage.setMinWidth(1200);
         primaryStage.setMinHeight(800);
         
-        // Center window
-        primaryStage.centerOnScreen();
+        // Maximize window for laptop full screen experience
+        primaryStage.setMaximized(true);
         
         // Add fade in animation
         primaryStage.setOpacity(0);
