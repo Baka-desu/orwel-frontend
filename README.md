@@ -1,15 +1,15 @@
-# Orwel - Government Policy Tracker
+# Orwel - Investment & Stock Market Intelligence
 
-A comprehensive JavaFX application for tracking government policies, stances, and regulations across countries worldwide. Built for MIT Hackathon 2026.
+A comprehensive JavaFX application for tracking stocks, analyzing companies, and gaining market intelligence across global financial markets. Built for MIT Hackathon 2026.
 
 ## Features
 
-- **Country Policy Tracking**: View comprehensive information about each country's policies, stances, and international agreements
-- **Personalized Warnings**: Receive alerts about potential issues based on your profile (stocks, travel, tax, etc.)
-- **Personalized News**: Get news articles tailored to your interests, location, and profile
-- **General News**: Stay updated with news from around the world, filtered by region, country, or topics
-- **Location-Based Services**: Automatic location detection and geocoding for location-relevant information
-- **User Profile Management**: Comprehensive profile with location, interests, and preferences
+- **Stock & Company Analysis**: View comprehensive information about companies with detailed market strategies, financial positions, and investment opportunities
+- **Risk Alerts**: Receive personalized alerts about potential market risks, regulatory changes, and investment impacts
+- **Curated Market News**: Get financial news articles tailored to your investment interests and portfolio
+- **Global Market News**: Stay updated with market news from around the world, filtered by sector, company, or financial topics
+- **Location-Based Services**: Automatic location detection for market-relevant information and localized insights
+- **Investor Profile Management**: Comprehensive profile with investment preferences, portfolio details, and interests
 
 ## Technology Stack
 
@@ -89,17 +89,17 @@ The backend team needs to implement the following endpoints:
 
 - **Authentication**: `/api/auth/login`, `/api/auth/register`
 - **User**: `/api/users/me` (GET, PUT)
-- **Countries**: `/api/countries`, `/api/countries/{code}`, `/api/countries/{code}/warnings`
-- **News**: `/api/news/personalized`, `/api/news/general`, `/api/news/country/{code}`, `/api/news/region/{region}`, `/api/news/search`
+- **Companies**: `/api/companies`, `/api/companies/{ticker}`, `/api/companies/{ticker}/alerts`
+- **News**: `/api/news/personalized`, `/api/news/market-wide`, `/api/news/company/{ticker}`, `/api/news/sector/{sector}`, `/api/news/search`
 
 ## Usage
 
 1. **Registration/Login**: Create an account or login with existing credentials
-2. **Complete Profile**: Fill in your profile including location, interests, and preferences
-3. **Explore Countries**: Browse countries and view their policies and stances
-4. **View Warnings**: Check personalized warnings for countries you're interested in
-5. **Read News**: Browse personalized or general news, filtered by region or country
-6. **Update Profile**: Keep your profile updated for better personalization
+2. **Complete Investor Profile**: Fill in your investment profile including portfolio details, interests, and risk preferences
+3. **Explore Companies**: Browse companies and view their market strategies and financial positions
+4. **View Risk Alerts**: Check personalized risk alerts for companies in your portfolio
+5. **Read Market News**: Browse curated or market-wide news, filtered by sector or company
+6. **Update Profile**: Keep your investor profile updated for better personalized insights
 
 ## Location API Configuration
 

@@ -22,7 +22,7 @@ public class Main extends Application {
         // Apply CSS
         scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
         
-        primaryStage.setTitle("Orwel - Government Policy Tracker");
+        primaryStage.setTitle("Orwel - Policy Intelligence Platform");
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(1200);
         primaryStage.setMinHeight(800);

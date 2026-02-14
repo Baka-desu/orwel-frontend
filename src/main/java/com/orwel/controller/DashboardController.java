@@ -242,38 +242,35 @@ public class DashboardController {
     }
     
     @FXML
-    private void navigateToCountries() {
-        NavigationHelper.navigate(welcomeLabel, "/fxml/Countries.fxml");
+    private void navigateToCountries(javafx.event.ActionEvent event) {
+        NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/Countries.fxml");
     }
     
     @FXML
-    private void navigateToNews() {
-        NavigationHelper.navigate(welcomeLabel, "/fxml/News.fxml");
+    private void navigateToNews(javafx.event.ActionEvent event) {
+        NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/News.fxml");
     }
     
     @FXML
-    private void navigateToProfile() {
-        NavigationHelper.navigate(welcomeLabel, "/fxml/Profile.fxml");
+    private void navigateToProfile(javafx.event.ActionEvent event) {
+        NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/Profile.fxml");
     }
     
     @FXML
-    private void navigateToAbout() {
-        NavigationHelper.navigate(welcomeLabel, "/fxml/About.fxml");
+    private void navigateToAbout(javafx.event.ActionEvent event) {
+        NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/About.fxml");
     }
     
     @FXML
-    private void handleLogout() {
+    private void handleLogout(javafx.event.ActionEvent event) {
         apiService.logout();
-        NavigationHelper.navigate(welcomeLabel, "/fxml/Login.fxml");
+        NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/Login.fxml");
     }
     
     @FXML
     private void viewAllWarnings() {
         // Navigate to warnings page or show all warnings
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Warnings");
-        alert.setContentText("View all warnings feature - can be implemented as a separate page");
-        alert.showAndWait();
+        System.out.println("[DashboardController] View all warnings feature - can be implemented as a separate page");
     }
     
     private void navigateToCountryDetail(String countryCode) {
@@ -288,10 +285,7 @@ public class DashboardController {
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText("Failed to load country details: " + e.getMessage());
-            alert.showAndWait();
+            System.err.println("[DashboardController] Failed to load country details: " + e.getMessage());
         }
     }
 }

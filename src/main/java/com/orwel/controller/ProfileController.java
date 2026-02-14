@@ -1,20 +1,26 @@
 package com.orwel.controller;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import com.orwel.model.LocationInfo;
 import com.orwel.model.User;
 import com.orwel.service.ApiService;
 import com.orwel.service.LocationService;
 import com.orwel.util.NavigationHelper;
+
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class ProfileController {
     @FXML private TextField firstNameField;
@@ -43,27 +49,119 @@ public class ProfileController {
     @FXML private Label errorLabel;
     @FXML private Label successLabel;
     
+    // Investment profile fields
+    @FXML private ComboBox<String> investmentExperienceComboBox;
+    @FXML private ComboBox<String> riskToleranceComboBox;
+    @FXML private ComboBox<String> tradingStyleComboBox;
+    @FXML private ComboBox<String> portfolioSizeComboBox;
+    @FXML private ComboBox<String> tradingFrequencyComboBox;
+    @FXML private ComboBox<String> timeHorizonComboBox;
+    @FXML private ComboBox<String> liquidAssetsComboBox;
+    @FXML private ComboBox<String> taxStrategyComboBox;
+    @FXML private ComboBox<String> sourceComboBox;
+    @FXML private CheckBox goalCapitalGrowth;
+    @FXML private CheckBox goalIncomeGeneration;
+    @FXML private CheckBox goalWealth;
+    @FXML private CheckBox goalRetirement;
+    @FXML private CheckBox goalShortTerm;
+    @FXML private CheckBox secEquities;
+    @FXML private CheckBox secOptions;
+    @FXML private CheckBox secBonds;
+    @FXML private CheckBox secCommodities;
+    @FXML private CheckBox secCrypto;
+    @FXML private CheckBox secMutualFunds;
+    @FXML private CheckBox analysisFundamental;
+    @FXML private CheckBox analysisTechnical;
+    @FXML private CheckBox analysisQuantitative;
+    @FXML private CheckBox analysisNews;
+    @FXML private CheckBox dividendFocus;
+    @FXML private CheckBox dividendReinvest;
+    @FXML private CheckBox dividendIgnore;
+    @FXML private CheckBox riskStopLoss;
+    @FXML private CheckBox riskHedging;
+    @FXML private CheckBox riskDiversification;
+    @FXML private CheckBox riskPortfolioRebalance;
+    @FXML private CheckBox intlDeveloped;
+    @FXML private CheckBox intlEmerging;
+    @FXML private CheckBox intlFrontier;
+    @FXML private TextArea investmentNotesArea;
+    
     private ApiService apiService = ApiService.getInstance();
     private LocationService locationService = LocationService.getInstance();
     private LocationInfo locationInfo;
     
     @FXML
     public void initialize() {
-        // Populate combo boxes
-        List<String> countries = Arrays.asList(
-            "United States", "United Kingdom", "Canada", "Australia", "Germany",
-            "France", "Italy", "Spain", "Japan", "China", "India", "Brazil",
-            "Mexico", "South Korea", "Netherlands", "Sweden", "Norway", "Switzerland"
-        );
-        countryComboBox.setItems(FXCollections.observableArrayList(countries));
-        
-        List<String> statuses = Arrays.asList(
-            "SINGLE", "MARRIED", "DIVORCED", "WIDOWED", "DOMESTIC_PARTNERSHIP"
-        );
-        marriageStatusComboBox.setItems(FXCollections.observableArrayList(statuses));
-        
-        // Load user data
-        loadUserData();
+        try {
+            // Populate country combo boxes
+            List<String> countries = Arrays.asList(
+                "United States", "United Kingdom", "Canada", "Australia", "Germany",
+                "France", "Italy", "Spain", "Japan", "China", "India", "Brazil",
+                "Mexico", "South Korea", "Netherlands", "Sweden", "Norway", "Switzerland"
+            );
+            countryComboBox.setItems(FXCollections.observableArrayList(countries));
+            
+            List<String> statuses = Arrays.asList(
+                "SINGLE", "MARRIED", "DIVORCED", "WIDOWED", "DOMESTIC_PARTNERSHIP"
+            );
+            marriageStatusComboBox.setItems(FXCollections.observableArrayList(statuses));
+            
+            // Populate investment experience
+            investmentExperienceComboBox.setItems(FXCollections.observableArrayList(
+                "Beginner", "Intermediate", "Advanced", "Professional"
+            ));
+            
+            // Populate risk tolerance
+            riskToleranceComboBox.setItems(FXCollections.observableArrayList(
+                "Conservative", "Moderate", "Aggressive", "Very Aggressive"
+            ));
+            
+            // Populate trading style
+            tradingStyleComboBox.setItems(FXCollections.observableArrayList(
+                "Long-term Investing", "Swing Trading", "Day Trading", "Dividend Focus", "Mixed Strategy"
+            ));
+            
+            // Populate portfolio size
+            portfolioSizeComboBox.setItems(FXCollections.observableArrayList(
+                "Less than $10,000", "$10,000 - $50,000", "$50,000 - $100,000", 
+                "$100,000 - $500,000", "$500,000 - $1M", "Above $1M"
+            ));
+            
+            // Populate trading frequency
+            tradingFrequencyComboBox.setItems(FXCollections.observableArrayList(
+                "Never (Buy & Hold)", "Few times per year", "Monthly", "Weekly", "Daily", "Multiple times per day"
+            ));
+            
+            // Populate time horizon
+            timeHorizonComboBox.setItems(FXCollections.observableArrayList(
+                "Less than 1 month", "1-3 months", "3-6 months", "6-12 months", 
+                "1-3 years", "3-5 years", "5+ years"
+            ));
+            
+            // Populate liquid assets
+            liquidAssetsComboBox.setItems(FXCollections.observableArrayList(
+                "Less than $5,000", "$5,000 - $25,000", "$25,000 - $100,000",
+                "$100,000 - $500,000", "$500,000 - $2M", "Above $2M"
+            ));
+            
+            // Populate tax strategy
+            taxStrategyComboBox.setItems(FXCollections.observableArrayList(
+                "Actively pursue tax-loss harvesting", "Occasionally consider tax implications",
+                "Minimal focus on tax optimization", "Use tax-advantaged accounts primarily"
+            ));
+            
+            // Populate source discovery
+            sourceComboBox.setItems(FXCollections.observableArrayList(
+                "Search Engine", "Social Media", "Friend or Family Recommendation",
+                "Investment Community/Forum", "Business Publication", "App Store", "Other"
+            ));
+            
+            // Load user data
+            loadUserData();
+        } catch (Exception e) {
+            System.err.println("[ProfileController] Error in initialize: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
     
     private void loadUserData() {
@@ -227,32 +325,34 @@ public class ProfileController {
     }
     
     // Navigation methods
-    @FXML private void navigateToDashboard() {
-        navigate("/fxml/Dashboard.fxml");
+    @FXML
+    private void navigateToDashboard() {
+        NavigationHelper.navigate(saveButton, "/fxml/Dashboard.fxml");
     }
     
-    @FXML private void navigateToCountries() {
-        navigate("/fxml/Countries.fxml");
+    @FXML
+    private void navigateToCountries() {
+        NavigationHelper.navigate(saveButton, "/fxml/Countries.fxml");
     }
     
-    @FXML private void navigateToNews() {
-        navigate("/fxml/News.fxml");
+    @FXML
+    private void navigateToNews() {
+        NavigationHelper.navigate(saveButton, "/fxml/News.fxml");
     }
     
-    @FXML private void navigateToProfile() {
+    @FXML
+    private void navigateToProfile() {
         // Already on profile
     }
     
-    @FXML private void navigateToAbout() {
-        navigate("/fxml/About.fxml");
+    @FXML
+    private void navigateToAbout() {
+        NavigationHelper.navigate(saveButton, "/fxml/About.fxml");
     }
     
-    @FXML private void handleLogout() {
+    @FXML
+    private void handleLogout() {
         apiService.logout();
-        navigate("/fxml/Login.fxml");
-    }
-    
-    private void navigate(String fxmlPath) {
-        NavigationHelper.navigate(saveButton, fxmlPath);
+        NavigationHelper.navigate(saveButton, "/fxml/Login.fxml");
     }
 }

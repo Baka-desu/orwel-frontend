@@ -50,15 +50,9 @@ public class NavigationHelper {
             stage.setFullScreenExitHint("");
         } catch (IOException e) {
             System.err.println("Failed to load FXML: " + fxmlPath);
+            System.err.println("Error details: " + e.getMessage());
             e.printStackTrace();
-            // Show error alert on JavaFX thread
-            javafx.application.Platform.runLater(() -> {
-                javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
-                alert.setTitle("Navigation Error");
-                alert.setHeaderText("Failed to load page");
-                alert.setContentText("Could not load: " + fxmlPath + "\n" + e.getMessage());
-                alert.showAndWait();
-            });
+            // Silent failure - no error popup
         } catch (Exception e) {
             System.err.println("Unexpected error during navigation: " + fxmlPath);
             e.printStackTrace();

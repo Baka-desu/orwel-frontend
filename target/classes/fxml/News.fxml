@@ -15,9 +15,9 @@
             <Label text="Orwel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"/>
             <Region HBox.hgrow="ALWAYS"/>
             <Button text="Dashboard" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToDashboard"/>
-            <Button text="Countries" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToCountries"/>
-            <Button text="News" style="-fx-background-color: #34495e; -fx-text-fill: white;" onAction="#navigateToNews"/>
-            <Button text="Profile" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToProfile"/>
+            <Button text="Companies" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToCountries"/>
+            <Button text="Market News" style="-fx-background-color: #34495e; -fx-text-fill: white;" onAction="#navigateToNews"/>
+            <Button text="Investor Profile" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToProfile"/>
             <Button text="About" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToAbout"/>
             <Button text="Logout" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" onAction="#handleLogout"/>
          </HBox>
@@ -29,7 +29,7 @@
             <RadioButton fx:id="generalRadio" text="General" toggleGroup="$newsTypeGroup" onAction="#handleFilterChange"/>
             <Region HBox.hgrow="ALWAYS"/>
             <ComboBox fx:id="regionComboBox" promptText="Filter by Region" onAction="#handleFilterChange"/>
-            <ComboBox fx:id="countryComboBox" promptText="Filter by Country" onAction="#handleFilterChange"/>
+            <ComboBox fx:id="countryComboBox" promptText="Filter by Companies" onAction="#handleFilterChange"/>
             <TextField fx:id="searchField" promptText="Search news..." prefWidth="200" onAction="#handleSearch"/>
             <Button text="Search" onAction="#handleSearch"/>
          </HBox>

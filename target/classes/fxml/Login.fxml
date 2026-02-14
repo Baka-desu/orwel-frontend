@@ -6,18 +6,18 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.orwel.controller.LoginController" stylesheets="@styles.css">
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.orwel.controller.LoginController" stylesheets="/styles.css">
    <top>
       <!-- Top Navigation Bar -->
-      <HBox style="-fx-background-color: rgba(15, 17, 21, 0.95); -fx-padding: 15 30; -fx-border-color: #2A2F3A; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT" spacing="15">
-         <Label text="ORWEL" style="-fx-text-fill: #E10600; -fx-font-size: 24px; -fx-font-weight: bold; -fx-letter-spacing: 2px;"/>
+      <HBox style="-fx-background-color: rgba(15, 20, 28, 0.95); -fx-padding: 15 30; -fx-border-color: #2A3445; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT" spacing="15">
+         <Label text="Orwel" style="-fx-text-fill: #2E6BFF; -fx-font-size: 24px; -fx-font-weight: bold; -fx-letter-spacing: 2px;"/>
          <Region HBox.hgrow="ALWAYS"/>
-         <Hyperlink fx:id="backHomeLink" text="Back to Home" style="-fx-text-fill: #E10600; -fx-font-size: 12px; -fx-font-weight: 600;" onAction="#handleBackHome"/>
+         <Hyperlink fx:id="backHomeLink" text="Back to Home" style="-fx-text-fill: #2E6BFF; -fx-font-size: 12px; -fx-font-weight: 600;" onAction="#handleBackHome"/>
       </HBox>
    </top>
    
    <center>
-      <ScrollPane fitToWidth="true" style="-fx-background-color: #0F1115; -fx-padding: 0;">
+      <ScrollPane fitToWidth="true" style="-fx-background-color: #0F141C; -fx-padding: 0;">
          <VBox fx:id="mainContent" alignment="TOP_CENTER" spacing="30">
             <padding>
                <Insets top="30" right="50" bottom="30" left="50"/>
@@ -25,10 +25,10 @@
             
             <!-- Logo/Title -->
             <VBox fx:id="titleBox" alignment="CENTER" spacing="10">
-               <Text fx:id="titleText" styleClass="title-large" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #E10600;"/>
-               <Text style="-fx-font-size: 14px; -fx-text-fill: #B8C1CC; -fx-text-alignment: center;">
-                  <text>Sign in to your account or create a new one</text>
-               </Text>
+               <Text fx:id="titleText" styleClass="title-large" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #2E6BFF;"/>
+                  <Text style="-fx-font-size: 14px; -fx-text-fill: #8B98A8; -fx-text-alignment: center;">
+                     <text>Sign in to your account to stay informed about global policies</text>
+                  </Text>
             </VBox>
             
             <!-- Tab Selection for Login/Signup -->

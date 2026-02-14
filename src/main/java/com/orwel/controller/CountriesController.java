@@ -1,19 +1,23 @@
 package com.orwel.controller;
 
-import com.orwel.model.Country;
-import com.orwel.service.ApiService;
-import com.orwel.util.NavigationHelper;
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import com.orwel.model.Country;
+import com.orwel.service.ApiService;
+import com.orwel.util.NavigationHelper;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 
 public class CountriesController {
     @FXML private FlowPane countriesFlowPane;
@@ -127,20 +131,18 @@ public class CountriesController {
     }
     
     private void showError(String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setContentText(message);
-        alert.showAndWait();
+        // Silent error logging - no popup
+        System.err.println("[CountriesController] " + message);
     }
     
     // Navigation methods
-    @FXML private void navigateToDashboard() { NavigationHelper.navigate(countriesFlowPane, "/fxml/Dashboard.fxml"); }
-    @FXML private void navigateToCountries() { /* Already on countries */ }
-    @FXML private void navigateToNews() { NavigationHelper.navigate(countriesFlowPane, "/fxml/News.fxml"); }
-    @FXML private void navigateToProfile() { NavigationHelper.navigate(countriesFlowPane, "/fxml/Profile.fxml"); }
-    @FXML private void navigateToAbout() { NavigationHelper.navigate(countriesFlowPane, "/fxml/About.fxml"); }
-    @FXML private void handleLogout() {
+    @FXML private void navigateToDashboard(javafx.event.ActionEvent event) { NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/Dashboard.fxml"); }
+    @FXML private void navigateToCountries(javafx.event.ActionEvent event) { /* Already on countries */ }
+    @FXML private void navigateToNews(javafx.event.ActionEvent event) { NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/News.fxml"); }
+    @FXML private void navigateToProfile(javafx.event.ActionEvent event) { NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/Profile.fxml"); }
+    @FXML private void navigateToAbout(javafx.event.ActionEvent event) { NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/About.fxml"); }
+    @FXML private void handleLogout(javafx.event.ActionEvent event) {
         apiService.logout();
-        NavigationHelper.navigate(countriesFlowPane, "/fxml/Login.fxml");
+        NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/Login.fxml");
     }
 }

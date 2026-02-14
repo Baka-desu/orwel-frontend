@@ -224,20 +224,18 @@ public class CountryDetailController {
     }
     
     private void showError(String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setContentText(message);
-        alert.showAndWait();
+        // Silent error logging - no popup
+        System.err.println("[CountryDetailController] " + message);
     }
     
     // Navigation methods
-    @FXML private void navigateToDashboard() { NavigationHelper.navigate(countryNameLabel, "/fxml/Dashboard.fxml"); }
-    @FXML private void navigateToCountries() { NavigationHelper.navigate(countryNameLabel, "/fxml/Countries.fxml"); }
-    @FXML private void navigateToNews() { NavigationHelper.navigate(countryNameLabel, "/fxml/News.fxml"); }
-    @FXML private void navigateToProfile() { NavigationHelper.navigate(countryNameLabel, "/fxml/Profile.fxml"); }
-    @FXML private void navigateToAbout() { NavigationHelper.navigate(countryNameLabel, "/fxml/About.fxml"); }
-    @FXML private void handleLogout() {
+    @FXML private void navigateToDashboard(javafx.event.ActionEvent event) { NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/Dashboard.fxml"); }
+    @FXML private void navigateToCountries(javafx.event.ActionEvent event) { NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/Countries.fxml"); }
+    @FXML private void navigateToNews(javafx.event.ActionEvent event) { NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/News.fxml"); }
+    @FXML private void navigateToProfile(javafx.event.ActionEvent event) { NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/Profile.fxml"); }
+    @FXML private void navigateToAbout(javafx.event.ActionEvent event) { NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/About.fxml"); }
+    @FXML private void handleLogout(javafx.event.ActionEvent event) {
         apiService.logout();
-        NavigationHelper.navigate(countryNameLabel, "/fxml/Login.fxml");
+        NavigationHelper.navigate((javafx.scene.Node) event.getSource(), "/fxml/Login.fxml");
     }
 }
